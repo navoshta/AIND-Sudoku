@@ -46,6 +46,23 @@ def naked_twins(values):
 def cross(A, B):
     "Cross product of elements in A and elements in B."
     pass
+def remove_digits(value, digits):
+    """
+    Removes digits from the value.
+
+    Parameters
+    ----------
+    value   : A string to remove digits from.
+    digits  : A string containing digits to remove.
+
+    Returns
+    -------
+    Value without provided digits.
+    """
+
+    for digit in digits:
+        value = value.replace(digit, '')
+    return value
 
 def grid_values(grid):
     """
