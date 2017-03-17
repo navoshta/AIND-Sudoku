@@ -52,8 +52,16 @@ def naked_twins(values):
     The values dictionary with the naked twins eliminated from peers.
     """
 
-    # Find all instances of naked twins
-    # Eliminate the naked twins as possibilities for their peers
+    for unit in unitlist:
+        unit_values = [values[box] for box in unit]
+        # Find all instances of naked twins in the unit
+        twins = set([values[box] for box in unit if len(values[box]) > 1 and unit_values.count(values[box]) == len(values[box])])
+        # Eliminate the naked twins as possibilities for their peers
+        for twin in twins:
+            for box in unit:
+                if values[box] != twin and len(values[box]) > 1:
+                    assign_value(values, box, remove_digits(values[box], twin))
+    return values
 
 def remove_digits(value, digits):
     """
