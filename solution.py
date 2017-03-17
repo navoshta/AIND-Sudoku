@@ -15,7 +15,6 @@ peers = dict((s, set(sum(units[s],[]))-set([s])) for s in boxes)
 
 def assign_value(values, box, value):
     """
-    Please use this function to update your values dictionary!
     Assigns a value to a given box. If it updates the board record it.
     """
 
@@ -29,12 +28,16 @@ def assign_value(values, box, value):
     return values
 
 def naked_twins(values):
-    """Eliminate values using the naked twins strategy.
-    Args:
-        values(dict): a dictionary of the form {'box_name': '123456789', ...}
+    """
+    Eliminates values using the naked twins strategy.
 
-    Returns:
-        the values dictionary with the naked twins eliminated from peers.
+    Parameters
+    ----------
+    values  : A dictionary of the form {'box_name': '123456789', ...}
+
+    Returns
+    -------
+    The values dictionary with the naked twins eliminated from peers.
     """
 
     # Find all instances of naked twins
@@ -46,21 +49,27 @@ def cross(A, B):
 
 def grid_values(grid):
     """
-    Convert grid into a dict of {square: char} with '123456789' for empties.
-    Args:
-        grid(string) - A grid in string form.
-    Returns:
-        A grid in dictionary form
-            Keys: The boxes, e.g., 'A1'
-            Values: The value in each box, e.g., '8'. If the box has no value, then the value will be '123456789'.
+    Converts a grid string into {<box>: <value>} dict with '123456789' value for empties.
+
+    Parameters
+    ----------
+    grid    : Sudoku grid in string form, 81 characters long
+
+    Returns
+    -------
+    Sudoku grid in dictionary form:
+        - keys: Box labels, e.g. 'A1'
+        - values: Value in corresponding box, e.g. '8', or '123456789' if it is empty.
     """
     pass
 
 def display(values):
     """
-    Display the values as a 2-D grid.
-    Args:
-        values(dict): The sudoku in dictionary form
+    Displays the values as a 2-D grid.
+
+    Parameters
+    ----------
+    values  : The sudoku in dictionary form.
     """
     pass
 
